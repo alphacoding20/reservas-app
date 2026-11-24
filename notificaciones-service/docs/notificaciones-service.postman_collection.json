@@ -1,0 +1,336 @@
+{
+  "info": {
+    "name": "notificaciones-service (C)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Ejemplos exactos del contrato, seccion 6. Cambia baseUrl al servicio desplegado."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8084"
+    },
+    {
+      "key": "chatId",
+      "value": "123456789"
+    },
+    {
+      "key": "notificacionId",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "POST confirmacion",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/confirmacion",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "confirmacion"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuarioId\": 3,\n  \"nombreUsuario\": \"Ana Pérez\",\n  \"canal\": \"TELEGRAM\",\n  \"destinatario\": \"{{chatId}}\",\n  \"reservaId\": 55,\n  \"nombreCancha\": \"Sintética 1\",\n  \"fecha\": \"2026-12-08\",\n  \"horaInicio\": \"18:00\",\n  \"horaFin\": \"19:00\",\n  \"precioTotal\": 60000\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "201 NotificacionDTO. Extra obligatorio: precioTotal."
+      }
+    },
+    {
+      "name": "POST recordatorio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/recordatorio",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "recordatorio"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuarioId\": 3,\n  \"nombreUsuario\": \"Ana Pérez\",\n  \"canal\": \"TELEGRAM\",\n  \"destinatario\": \"{{chatId}}\",\n  \"reservaId\": 55,\n  \"nombreCancha\": \"Sintética 1\",\n  \"fecha\": \"2026-12-08\",\n  \"horaInicio\": \"18:00\",\n  \"horaFin\": \"19:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "201. Sin campos extra."
+      }
+    },
+    {
+      "name": "POST cancelacion",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/cancelacion",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "cancelacion"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuarioId\": 3,\n  \"nombreUsuario\": \"Ana Pérez\",\n  \"canal\": \"TELEGRAM\",\n  \"destinatario\": \"{{chatId}}\",\n  \"reservaId\": 55,\n  \"nombreCancha\": \"Sintética 1\",\n  \"fecha\": \"2026-12-08\",\n  \"horaInicio\": \"18:00\",\n  \"horaFin\": \"19:00\",\n  \"motivo\": \"USUARIO\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "201. Extra obligatorio: motivo (USUARIO, LLUVIA, ADMIN)."
+      }
+    },
+    {
+      "name": "POST reprogramacion",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/reprogramacion",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "reprogramacion"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuarioId\": 3,\n  \"nombreUsuario\": \"Ana Pérez\",\n  \"canal\": \"TELEGRAM\",\n  \"destinatario\": \"{{chatId}}\",\n  \"reservaId\": 55,\n  \"nombreCancha\": \"Sintética 1\",\n  \"fecha\": \"2026-12-08\",\n  \"horaInicio\": \"18:00\",\n  \"horaFin\": \"19:00\",\n  \"fechaAnterior\": \"2026-12-07\",\n  \"horaInicioAnterior\": \"17:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "201. fecha/horaInicio/horaFin son la NUEVA franja. Extra: fechaAnterior, horaInicioAnterior."
+      }
+    },
+    {
+      "name": "POST alerta-lluvia",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/alerta-lluvia",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "alerta-lluvia"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuarioId\": 3,\n  \"nombreUsuario\": \"Ana Pérez\",\n  \"canal\": \"TELEGRAM\",\n  \"destinatario\": \"{{chatId}}\",\n  \"reservaId\": 55,\n  \"nombreCancha\": \"Sintética 1\",\n  \"fecha\": \"2026-12-08\",\n  \"horaInicio\": \"18:00\",\n  \"horaFin\": \"19:00\",\n  \"probabilidadLluvia\": 75\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "201. Extra obligatorio: probabilidadLluvia (0-100)."
+      }
+    },
+    {
+      "name": "POST confirmacion (400 falta precioTotal)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/confirmacion",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "confirmacion"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"usuarioId\": 3,\n  \"nombreUsuario\": \"Ana Pérez\",\n  \"canal\": \"TELEGRAM\",\n  \"destinatario\": \"{{chatId}}\",\n  \"reservaId\": 55,\n  \"nombreCancha\": \"Sintética 1\",\n  \"fecha\": \"2026-12-08\",\n  \"horaInicio\": \"18:00\",\n  \"horaFin\": \"19:00\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "description": "400 VALIDACION."
+      }
+    },
+    {
+      "name": "POST reenviar",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/{{notificacionId}}/reenviar",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "{{notificacionId}}",
+            "reenviar"
+          ]
+        },
+        "description": "200 con intentos+1. 404 NOTIFICACION_NO_ENCONTRADA. 409 YA_ENVIADA si ya salio."
+      }
+    },
+    {
+      "name": "GET historial por usuario",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/usuario/3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "usuario",
+            "3"
+          ]
+        },
+        "description": "200 [NotificacionDTO], mas recientes primero."
+      }
+    },
+    {
+      "name": "GET estadisticas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/estadisticas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "estadisticas"
+          ]
+        },
+        "description": "200 {total, enviadas, fallidas, porTipo}."
+      }
+    },
+    {
+      "name": "GET por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/{{notificacionId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "{{notificacionId}}"
+          ]
+        },
+        "description": "200 / 404."
+      }
+    },
+    {
+      "name": "DELETE por id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/notificaciones/{{notificacionId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "notificaciones",
+            "{{notificacionId}}"
+          ]
+        },
+        "description": "204 / 404."
+      }
+    },
+    {
+      "name": "GET health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/actuator/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "actuator",
+            "health"
+          ]
+        },
+        "description": "Health check del hosting."
+      }
+    }
+  ]
+}
