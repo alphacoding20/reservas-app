@@ -3,16 +3,17 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for auth" enabled="true">
+      <profile name="Annotation profile for canchas-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.48/lombok-1.18.48.jar" />
         </processorPath>
-        <module name="auth" />
+        <module name="canchas" />
+        <module name="auth-service" />
       </profile>
-      <profile name="Annotation profile for reservas" enabled="true">
+      <profile name="Annotation profile for reservas-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -23,13 +24,10 @@
         <module name="reservas" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="canchas" target="21" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="auth" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
       <module name="canchas" options="-parameters" />
       <module name="notificaciones-service" options="-parameters" />
       <module name="reservas" options="-parameters" />
