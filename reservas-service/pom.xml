@@ -9,9 +9,9 @@
         <relativePath/>
     </parent>
     <groupId>com.canchas</groupId>
-    <artifactId>reservas</artifactId>
+    <artifactId>reservas-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>reservas</name>
+    <name>reservas-service</name>
     <description>reservas-service: núcleo del sistema de reservas de canchas deportivas</description>
 
     <properties>
