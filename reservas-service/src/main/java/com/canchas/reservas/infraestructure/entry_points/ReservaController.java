@@ -50,8 +50,6 @@ public class ReservaController {
     private final EstadisticasUseCase estadisticasUseCase;
     private final ReservaDtoMapper mapper;
 
-    // ------------------------------------------------------------------ CRUD
-
     @PostMapping
     public ResponseEntity<ReservaDTO> crear(@Valid @RequestBody CrearReservaRequest request) {
         Reserva reserva = reservaUseCase.crear(request.canchaId(), request.usuarioId(), request.fecha(),
@@ -75,7 +73,6 @@ public class ReservaController {
         return ResponseEntity.noContent().build();
     }
 
-    // -------------------------------------------------------------- no CRUD
 
     @GetMapping("/disponibilidad")
     public DisponibilidadDTO disponibilidad(
